@@ -10,6 +10,25 @@ $ go get github.com/idr0id/resyncd
 $ resyncd example.toml
 ```
 
+ИЛИ
+
+склонируй себе репозиторий в GOPATH/src/github.com/idr0id
+затем: go build -o resyncd main.go logger.go config.go rsync.go synchronizer.go utils.go watcher.go file_matcher.go
+затем сделай так mv ./resyncd $(go env GOPATH)/bin/
+и попробуй после этого просто сделать resyncd
+
+nano -w ~/.zshrc
+export GOPATH=$HOME/go
+export GOROOT=/usr/local/go
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOPATH
+export PATH=$PATH:$GOROOT/bin
+export PATH=$PATH:$(go env GOPATH)/bin
+
+```
+$ resyncd example.toml
+```
+
 ## Configuration
 
 ```
